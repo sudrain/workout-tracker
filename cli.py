@@ -87,10 +87,28 @@ async def main():
     parser_add.add_argument("username", type=str, help="Имя пользователя")
     parser_add.add_argument("email", type=str, help="Электронная почта")
 
+    # Подкоманда add-cardio
+    parser_add = subparsers.add_parser("add-cardio", help="Добавить кардио тренировку")
+    parser_add.add_argument("username", type=str, help="Имя пользователя")
+    parser_add.add_argument("distance", type=float, help="Дистанция")
+    parser_add.add_argument("duration", type=int, help="Дистанция")
+    parser_add.add_argument("notes", type=str, help="Дистанция")
+    parser_add.add_argument("avg_heart_rate", type=int, help="Дистанция")
+    parser_add.add_argument("pace_min_per_km", type=int, help="Дистанция")
+
     args = parser.parse_args()
 
     if args.command == "add-user":
         await add_user(args.username, args.email)
+    elif args.command == "add-cardio":
+        await add_cardio_workout(
+            args.username,
+            args.distance,
+            args.duration,
+            args.notes,
+            args.avg_heart_rate,
+            args.pace_min_per_km,
+        )
 
 
 if __name__ == "__main__":
