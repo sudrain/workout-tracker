@@ -69,9 +69,9 @@ exercise_sets_table = sa.Table(
     metadata,
     sa.Column("id", sa.Integer, primary_key=True),
     sa.Column(
-        "strength_exercises_id",
+        "strength_exercise_id",
         sa.Integer,
-        sa.ForeignKey("strength_exercise.id", ondelete="CASCADE"),
+        sa.ForeignKey("strength_exercises.id", ondelete="CASCADE"),
     ),
     sa.Column("set_number", sa.Integer, nullable=False),
     sa.Column(
