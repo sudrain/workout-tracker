@@ -88,13 +88,19 @@ async def main():
     parser_add.add_argument("email", type=str, help="Электронная почта")
 
     # Подкоманда add-cardio
-    parser_add = subparsers.add_parser("add-cardio", help="Добавить кардио тренировку")
-    parser_add.add_argument("username", type=str, help="Имя пользователя")
-    parser_add.add_argument("distance", type=float, help="Дистанция")
-    parser_add.add_argument("duration", type=int, help="Дистанция")
-    parser_add.add_argument("notes", type=str, help="Дистанция")
-    parser_add.add_argument("avg_heart_rate", type=int, help="Дистанция")
-    parser_add.add_argument("pace_min_per_km", type=int, help="Дистанция")
+    parser_cardio = subparsers.add_parser(
+        "add-cardio", help="Добавить кардио тренировку"
+    )
+    parser_cardio.add_argument("username", type=str, help="Имя пользователя")
+    parser_cardio.add_argument("distance", type=float, help="Дистанция в метрах")
+    parser_cardio.add_argument("duration", type=int, help="Длительность в секундах")
+    parser_cardio.add_argument("--notes", type=str, help="Заметки к тренировке")
+    parser_cardio.add_argument(
+        "--avg-hr", type=int, dest="avg_heart_rate", help="Средний пульс"
+    )
+    parser_cardio.add_argument(
+        "--pace", type=int, dest="pace_min_per_km", help="Темп в минутах на км"
+    )
 
     args = parser.parse_args()
 
