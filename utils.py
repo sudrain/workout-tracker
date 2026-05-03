@@ -9,3 +9,7 @@ def parse_pace(pace_str: str) -> int:
         return (minutes * 60) + seconds
     else:
         raise ValueError("Invalid pace format. Use 'MM:SS' or 'MM'")
+
+
+def validate_strength_workout():
+    pass
